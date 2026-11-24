@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Professional Profile</title>
+  <meta name="description" content="Abdul Musavir UC is a Digital Growth &amp; CX Specialist in Dubai with 16+ years across product design, growth strategy, performance marketing and content, driving acquisition, adoption and conversion." />
+  <meta property="og:title" content="Abdul Musavir UC · Digital Growth &amp; CX Specialist" />
+  <meta property="og:description" content="Growth strategy, performance marketing, content and customer experience, backed by 16+ years of product design. Based in Dubai." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://musavir.me/" />
+  <link rel="canonical" href="https://musavir.me/" />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preload" href="garet-regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="garet-medium.woff2" as="font" type="font/woff2" crossorigin />
+
+  <style>
+    /* Garet: Book, Regular, Medium only (no bold / extra-bold weights) */
+    @font-face { font-family: 'Garet'; font-style: normal; font-weight: 300; font-display: swap; src: url('garet-book.woff2') format('woff2'); }
+    @font-face { font-family: 'Garet'; font-style: normal; font-weight: 400; font-display: swap; src: url('garet-regular.woff2') format('woff2'); }
+    @font-face { font-family: 'Garet'; font-style: normal; font-weight: 500; font-display: swap; src: url('garet-medium.woff2') format('woff2'); }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #ffffff;
+      --ink: #0f0f10;
+      --muted: #6b6b6b;
+      --line: #e6e6e6;
+      --card: #f5f5f5;
+      --accent: #E9104B;
+      --accent-fill: #E9104B;
+      --accent-fill-hover: #c90d40;
+      --green: #16a34a;
+      --green-dot: #22c55e;
+      --max: 1240px;
+      --gutter: clamp(20px, 4vw, 56px);
+      --edge: max(var(--gutter), calc((100% - var(--max)) / 2));
+      --edge-h: max(var(--gutter), calc((var(--vw, 100vw) - var(--max)) / 2));
+      --header-h: 76px;
+      --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+      color-scheme: light;
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #0c0c0d;
+      --ink: #f4f4f4;
+      --muted: #9a9a9a;
+      --line: #262628;
+      --card: #161618;
+      --accent: #ff3d6e;
+      --green: #4ade80;
+      --green-dot: #4ade80;
+      color-scheme: dark;
+    }
+
+    html { scroll-behavior: smooth; font-synthesis: none; -webkit-text-size-adjust: 100%; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Garet', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 400;
+      font-size: 17px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: clip;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    ::selection { background: var(--accent-fill); color: #fff; }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+
+    .container {
+      width: 100%;
+      max-width: calc(var(--max) + 2 * var(--gutter));
+      margin: 0 auto;
+      padding: 0 var(--gutter);
+    }
+
+    .caps {
+      font-size: 12px; font-weight: 500; line-height: 1.4;
+      letter-spacing: 0.18em; text-transform: uppercase;
+    }
+
+    /* ─── Header ─── */
+    .site-header {
+      position: fixed; inset: 0 0 auto 0; z-index: 50;
+      background: var(--bg);
+      transition: background-color 0.3s ease;
+    }
+    .header-inner {
+      height: var(--header-h);
+      display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px;
+    }
+
+    .logo { justify-self: start; font-size: 22px; font-weight: 500; letter-spacing: -0.03em; }
+    .logo .light { font-weight: 300; }
+
+    .logo { white-space: nowrap; }
+
+    .nav { display: flex; gap: clamp(24px, 2.6vw, 40px); }
+    .nav a {
+      position: relative; padding: 8px 0;
+      color: var(--muted);
+      transition: color 0.2s;
+    }
+    .nav a:hover, .nav a.active { color: var(--ink); }
+    .nav a::after {
+      content: ''; position: absolute; left: 50%; bottom: -2px;
+      width: 16px; height: 2px; border-radius: 2px;
+      background: var(--accent);
+      transform: translateX(-50%) scaleX(0);
+      transition: transform 0.3s var(--ease);
+    }
+    .nav a.active::after { transform: translateX(-50%) scaleX(1); }
+
+    .header-actions { justify-self: end; display: flex; align-items: center; gap: 10px; }
+
+    .scroll-progress {
+      position: absolute; left: 0; bottom: 0;
+      width: 100%; height: 2px;
+      background: var(--accent);
+      transform-origin: left center;
+      transform: scaleX(var(--p, 0));
+    }
+
+    .theme-toggle {
+      display: inline-grid; place-items: center;
+      width: 44px; height: 44px;
+      border: 1px solid var(--line); border-radius: 50%;
+      background: transparent; color: var(--ink);
+      cursor: pointer;
+      transition: border-color 0.2s, background-color 0.2s;
+    }
+    .theme-toggle:hover { border-color: var(--ink); }
+    .theme-toggle .icon-sun { display: none; }
+    :root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+    :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+
+    .pill {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      height: 44px; padding: 0 22px;
+      border: 1px solid transparent; border-radius: 999px;
+      white-space: nowrap;
+      transition: background-color 0.2s, color 0.2s, border-color 0.2s, opacity 0.2s;
+    }
+    .pill-accent { background: var(--accent-fill); color: #fff; }
+    .pill-accent:hover { background: var(--accent-fill-hover); }
+    .pill-outline { border-color: var(--line); color: var(--ink); }
+    .pill-outline:hover { border-color: var(--ink); }
+    .pill-ink { background: var(--ink); color: var(--bg); }
+    .pill-ink:hover { opacity: 0.86; }
+    .pill svg { flex-shrink: 0; }
+
+    /* Header blends into the accent slide while it is in view */
+    body.on-accent .site-header { background: var(--accent-fill); color: #fff; }
+    body.on-accent .nav a { color: rgba(255,255,255,0.75); }
+    body.on-accent .nav a:hover,
+    body.on-accent .nav a.active { color: #fff; }
+    body.on-accent .nav a::after { background: #fff; }
+    body.on-accent .scroll-progress { background: rgba(255,255,255,0.3); }
+    body.on-accent .theme-toggle { color: #fff; border-color: rgba(255,255,255,0.5); }
+    body.on-accent .theme-toggle:hover { border-color: #fff; }
+    body.on-accent .header-actions .pill-accent { background: #fff; color: var(--accent-fill); }
+
+    @media (max-width: 1100px) {
+      .nav { display: none; }
+      .header-inner { grid-template-columns: 1fr auto; }
+    }
+    @media (max-width: 520px) {
+      :root { --header-h: 60px; }
+      .pill { height: 40px; padding: 0 18px; }
+      /* Compact header on phones */
+      .logo { font-size: 18px; }
+      .header-inner { gap: 12px; }
+      .header-actions { gap: 6px; }
+      .theme-toggle { width: 32px; height: 32px; }
+      .theme-toggle svg { width: 14px; height: 14px; }
+      .header-actions .pill { height: 32px; padding: 0 12px; font-size: 10px; letter-spacing: 0.1em; }
+    }
+    @media (max-width: 520px) {
+      .role-sep { display: none; }
+      .role-place { display: block; }
+    }
+    @media (max-width: 370px) {
+      .logo { font-size: 16px; }
+      .header-actions .pill { padding: 0 10px; letter-spacing: 0.06em; }
+    }
+
+    /* ─── Side pager ─── */
+    .pager {
+      position: fixed; right: 28px; top: 50%; z-index: 40;
+      display: none; flex-direction: column; align-items: flex-end; gap: 14px;
+      transform: translateY(-50%);
+    }
+    @media (min-width: 1400px) { .pager { display: flex; } }
+    .pager a {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+      font-variant-numeric: tabular-nums;
+      color: var(--muted);
+      transition: color 0.3s;
+    }
+    .pager a::before {
+      content: ''; width: 5px; height: 5px; border-radius: 50%;
+      background: currentColor; opacity: 0.5;
+      transition: transform 0.3s var(--ease), opacity 0.3s;
+    }
+    .pager a:hover { color: var(--ink); }
+    .pager a.active { color: var(--accent); }
+    .pager a.active::before { transform: scale(1.4); opacity: 1; }
+    body.on-accent .pager a { color: rgba(255,255,255,0.75); }
+    body.on-accent .pager a.active { color: #fff; }
+
+    /* ─── Slides ─── */
+    .slide {
+      position: relative;
+      min-height: 100vh; min-height: 100svh;
+      padding: calc(var(--header-h) + 16px) 0 clamp(48px, 7vw, 88px);
+      display: flex; flex-direction: column;
+    }
+    .slide > .container { flex: 1; display: flex; flex-direction: column; }
+
+    .slide-body {
+      flex: 1;
+      display: flex; flex-direction: column; justify-content: center;
+      padding-top: clamp(40px, 6vw, 72px);
+    }
+
+    /* ─── 01 Intro ─── */
+    .identity { display: flex; align-items: center; gap: 14px; margin-bottom: clamp(28px, 4vw, 44px); }
+    .avatar {
+      width: 52px; height: 52px; flex-shrink: 0;
+      border-radius: 50%; object-fit: cover;
+    }
+    .identity-name { font-size: 16px; font-weight: 500; letter-spacing: -0.01em; line-height: 1.3; }
+    .identity-role { font-size: 14px; color: var(--muted); line-height: 1.4; }
+
+    .display {
+      font-size: clamp(44px, 6.6vw, 112px);
+      font-weight: 500;
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+    .typed-line { display: block; color: var(--accent); }
+    .type-cursor {
+      display: inline-block;
+      width: 0.05em; height: 0.74em;
+      margin-left: 0.05em;
+      vertical-align: -0.02em;
+      background: var(--ink);
+      animation: blink 1s steps(1) infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .intro-foot {
+      margin-top: clamp(40px, 5vw, 72px);
+      display: flex; flex-direction: column; align-items: flex-start;
+      gap: clamp(20px, 3vh, 32px);
+    }
+    .lead {
+      max-width: 28em;
+      font-size: clamp(18px, 1.6vw, 22px);
+      font-weight: 300;
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+    }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    /* ─── 02 About ─── */
+    .statement {
+      max-width: 15em;
+      font-size: clamp(36px, 5.4vw, 92px);
+      font-weight: 500;
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+    }
+    .statement em { font-style: normal; color: var(--accent); }
+    .statement-sub {
+      margin-top: clamp(16px, 2vw, 28px);
+      max-width: 28em;
+      font-size: clamp(19px, 1.8vw, 26px);
+      font-weight: 400;
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+    .nowrap { white-space: nowrap; }
+    @media (min-width: 521px) { .keep { white-space: nowrap; } }
+    /* About headline: three fixed lines on wider screens, natural wrapping on phones */
+    @media (min-width: 640px) { .statement .st-line { display: block; white-space: nowrap; } }
+
+    .about-foot {
+      margin-top: clamp(48px, 6vw, 88px);
+      display: grid; grid-template-columns: 1fr 1.8fr; align-items: end; gap: 40px 64px;
+    }
+    .bio { max-width: 30em; font-size: 17px; line-height: 1.6; color: var(--muted); }
+    .bio strong { font-weight: 500; color: var(--ink); }
+    .stats { display: grid; grid-template-columns: 0.75fr 1fr 1.65fr; gap: 24px; }
+    .stat { border-top: 1px solid var(--line); padding-top: 18px; }
+    .stat-value { font-size: clamp(32px, 3.4vw, 56px); font-weight: 500; letter-spacing: -0.045em; line-height: 1; white-space: nowrap; }
+    .stat-label { margin-top: 12px; color: var(--muted); font-size: 11px; letter-spacing: 0.16em; }
+
+    @media (max-width: 900px) { .about-foot { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) {
+      .stats { grid-template-columns: 1fr; gap: 0; }
+      .stat { padding: 18px 0; }
+      .stat-label { margin-top: 8px; }
+    }
+
+    /* ─── 03 Growth ─── */
+    .growth-head {
+      display: grid; grid-template-columns: 1fr minmax(0, 25em); align-items: end; gap: 20px 64px;
+    }
+    .growth-label { color: var(--accent); }
+    .growth-title {
+      margin-top: 16px;
+      font-size: clamp(40px, 4.4vw, 72px); font-weight: 500;
+      letter-spacing: -0.05em; line-height: 0.98;
+    }
+    .growth-sub { font-size: 18px; line-height: 1.5; color: var(--muted); }
+
+    .funnel {
+      margin-top: clamp(32px, 5vw, 64px);
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+      list-style: none;
+    }
+    .stage {
+      display: flex; flex-direction: column; gap: 18px;
+      padding: clamp(22px, 2vw, 30px);
+      border-radius: 24px;
+      background: var(--card);
+    }
+    .stage-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; color: var(--muted); }
+    .stage-kpi { display: inline-flex; align-items: center; gap: 6px; color: var(--accent); }
+    .stage-name { font-size: clamp(28px, 2.4vw, 40px); font-weight: 500; letter-spacing: -0.04em; line-height: 1; }
+    .stage-desc { font-size: 15px; line-height: 1.55; color: var(--muted); }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .stage .tags { margin-top: auto; }
+    .tag {
+      font-size: 12px; line-height: 1; padding: 7px 10px;
+      border: 1px solid var(--line); border-radius: 999px;
+      color: var(--ink); white-space: nowrap;
+    }
+    .stage .tag { background: var(--bg); border-color: transparent; }
+
+    .growth-foot {
+      margin-top: clamp(20px, 3vw, 36px);
+      display: flex; align-items: center; gap: 12px;
+      color: var(--muted);
+    }
+    .growth-foot svg { flex-shrink: 0; color: var(--accent); }
+
+    @media (max-width: 1100px) {
+      .growth-head { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 900px) {
+      .funnel { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .funnel { grid-template-columns: 1fr; gap: 12px; }
+      .stage { min-height: 0; }
+    }
+
+    /* ─── 04 Experience ─── */
+    .exp-layout {
+      flex: 1;
+      display: grid; grid-template-columns: minmax(280px, 30%) 1fr; gap: 32px;
+      margin-top: clamp(24px, 4vw, 48px);
+      padding-left: var(--edge);
+    }
+    .exp-intro { display: flex; flex-direction: column; justify-content: space-between; gap: 32px; }
+    .exp-title { font-size: clamp(40px, 4.4vw, 72px); font-weight: 500; letter-spacing: -0.05em; line-height: 0.98; }
+    .exp-sub { margin-top: 20px; max-width: 20em; font-size: 18px; line-height: 1.5; color: var(--muted); }
+    .exp-industries { margin-top: 24px; }
+    .exp-industries .caps { color: var(--muted); margin-bottom: 10px; }
+    .exp-controls { display: flex; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .exp-count { color: var(--muted); }
+    .exp-buttons { display: flex; gap: 10px; }
+    .round-btn {
+      display: grid; place-items: center;
+      width: 48px; height: 48px;
+      border: 1px solid var(--line); border-radius: 50%;
+      background: transparent; color: var(--ink);
+      cursor: pointer;
+      transition: background-color 0.2s, color 0.2s, border-color 0.2s, opacity 0.2s;
+    }
+    .round-btn:hover:not(:disabled) { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+    .round-btn:disabled { opacity: 0.35; cursor: default; }
+
+    .exp-track {
+      display: flex; gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-right: var(--edge);
+      scroll-padding-right: var(--edge);
+      overscroll-behavior-x: contain;
+      scrollbar-width: none;
+    }
+    .exp-track::-webkit-scrollbar { display: none; }
+    .exp-track:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 24px; }
+
+    .exp-card {
+      flex: 0 0 clamp(288px, 30vw, 440px);
+      min-height: clamp(360px, 48vh, 460px);
+      display: flex; flex-direction: column; justify-content: space-between; gap: 28px;
+      padding: clamp(24px, 2.4vw, 36px);
+      border-radius: 24px;
+      background: var(--card);
+      scroll-snap-align: start;
+    }
+    .exp-card-top { display: flex; justify-content: space-between; align-items: center; color: var(--muted); }
+    .current { display: inline-flex; align-items: center; gap: 8px; color: var(--green); }
+    .current::before {
+      content: ''; width: 8px; height: 8px; border-radius: 50%;
+      background: var(--green-dot);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--green-dot) 22%, transparent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 50% { opacity: 0.3; } }
+    .exp-company { margin-top: clamp(20px, 3vh, 32px); font-size: clamp(36px, 3.6vw, 56px); font-weight: 500; letter-spacing: -0.045em; line-height: 1; }
+    .exp-role { margin-top: 10px; font-size: 18px; letter-spacing: -0.01em; }
+    .exp-desc { font-size: 15px; color: var(--muted); line-height: 1.55; }
+    .exp-meta { margin-top: 22px; color: var(--muted); font-size: 11px; letter-spacing: 0.16em; }
+
+    @media (max-width: 900px) {
+      .exp-layout { grid-template-columns: 1fr; padding-left: 0; }
+      .exp-intro { padding: 0 var(--gutter); }
+      .exp-track { padding: 0 var(--gutter); scroll-padding: 0 var(--gutter); }
+      .exp-card { flex-basis: min(82vw, 400px); min-height: 380px; }
+    }
+
+    /* ─── 05 Expertise (accent slide) ─── */
+    .slide-accent { background: var(--accent-fill); color: #fff; overflow: hidden; }
+    .slide-accent ::selection { background: #fff; color: var(--accent-fill); }
+
+    .big-word {
+      margin-top: clamp(24px, 4vw, 48px);
+      font-size: clamp(64px, 14vw, 220px);
+      font-weight: 500; letter-spacing: -0.06em; line-height: 0.95;
+    }
+
+    .expertise-lead {
+      margin-top: clamp(32px, 4vw, 56px);
+      max-width: 22em;
+      font-size: clamp(22px, 2.6vw, 40px);
+      line-height: 1.2; letter-spacing: -0.03em;
+    }
+    .cap-cols {
+      margin-top: clamp(48px, 6vw, 80px);
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px 48px;
+    }
+    .cap-col h3 { padding-bottom: 14px; margin-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.2); }
+    .cap-col ul { list-style: none; }
+    .cap-col li { padding: 5px 0; font-size: 16px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 4px; }
+    .chip { font-size: 13px; line-height: 1; padding: 8px 12px; border: 1px solid rgba(255,255,255,0.6); border-radius: 999px; }
+
+    @media (max-width: 900px) { .cap-cols { grid-template-columns: 1fr; } }
+
+    /* ─── 06 Contact ─── */
+    .contact-label { color: var(--accent); }
+    .contact-title {
+      margin-top: 24px;
+      font-size: clamp(64px, 12vw, 200px);
+      font-weight: 500; letter-spacing: -0.06em; line-height: 0.92;
+    }
+    .contact-email {
+      display: inline-block; align-self: flex-start;
+      margin-top: clamp(28px, 4vw, 48px);
+      padding-bottom: 10px;
+      font-size: clamp(26px, 4.6vw, 72px);
+      letter-spacing: -0.04em; line-height: 1.1;
+      overflow-wrap: anywhere;
+      border-bottom: 3px solid var(--accent);
+      transition: color 0.2s;
+    }
+    .contact-email:hover { color: var(--accent); }
+    .contact-links { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 10px; }
+    .contact-foot {
+      margin-top: clamp(48px, 6vw, 80px); padding-top: 24px;
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px 24px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+    }
+    .contact-foot a { color: var(--ink); transition: color 0.2s; }
+    .contact-foot a:hover { color: var(--accent); }
+
+    /* ─── Motion ─── */
+    .rise { animation: rise 1s var(--ease) both; animation-delay: var(--d, 0s); }
+    @keyframes rise { from { opacity: 0; transform: translateY(24px); } }
+
+    .js .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); transition-delay: var(--d, 0s); }
+    .js .reveal.visible { opacity: 1; transform: none; }
+
+    .h-only { display: none; }
+
+    .scroll-hint { align-items: center; gap: 14px; color: var(--muted); }
+    .scroll-hint svg { animation: nudge 1.6s var(--ease) infinite; }
+    @keyframes nudge { 50% { transform: translateX(8px); } }
+
+    /* ─── Horizontal scroll (desktop / tablet) ───
+       Vertical scrolling drives a sideways track; phones and short windows keep the vertical layout. */
+    @media (min-width: 901px) and (min-height: 640px) {
+      .h-sticky { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+      .h-track { position: relative; display: flex; width: max-content; height: 100%; will-change: transform; }
+
+      .slide {
+        flex: 0 0 var(--vw, 100vw);
+        width: var(--vw, 100vw);
+        height: 100vh; min-height: 0;
+        overflow: hidden;
+        padding-bottom: clamp(32px, 6vh, 72px);
+      }
+      .slide-body { padding-top: clamp(20px, 5vh, 64px); }
+
+      .h-only { display: inline-flex; }
+      .v-only { display: none; }
+      .scroll-hint { margin-top: clamp(16px, 3vh, 32px); }
+
+      .js .reveal { transform: translateX(56px); }
+
+      /* Intro */
+      .identity { margin-bottom: clamp(20px, 4vh, 44px); }
+      .display { font-size: clamp(44px, min(6.6vw, 11vh), 112px); }
+      .intro-foot { margin-top: clamp(24px, 5vh, 64px); }
+
+      /* About */
+      .statement { font-size: clamp(36px, min(5.4vw, 9.5vh), 92px); }
+      .about-foot { margin-top: clamp(28px, 6vh, 80px); }
+      .bio { font-size: 16px; }
+
+      /* Growth */
+      .growth-title { font-size: clamp(40px, min(4.4vw, 7.5vh), 72px); }
+      .funnel { margin-top: clamp(20px, 4.5vh, 56px); }
+      .stage { gap: clamp(12px, 2vh, 18px); padding: clamp(20px, min(2vw, 3.4vh), 30px); }
+      .growth-foot { margin-top: clamp(14px, 3vh, 32px); }
+
+      /* Experience: one wide panel the page travels across */
+      #experience { flex: 0 0 auto; width: max-content; justify-content: center; }
+      .exp-layout {
+        flex: 0 0 auto;
+        display: flex; gap: 32px;
+        margin-top: 0;
+        padding: 0 var(--edge-h);
+      }
+      .exp-intro { flex: 0 0 auto; width: clamp(300px, 28vw, 420px); }
+      .exp-track { overflow: visible; scroll-snap-type: none; padding-right: 0; }
+      .exp-card { flex: 0 0 auto; width: clamp(300px, 30vw, 440px); min-height: clamp(360px, 56vh, 500px); }
+      .exp-buttons { display: none; }
+
+      /* Expertise */
+      .big-word { margin-top: auto; padding-top: clamp(8px, 2vh, 32px); font-size: clamp(64px, min(14vw, 17vh), 220px); }
+      .expertise-lead { margin-top: clamp(12px, 2.5vh, 40px); max-width: 30em; font-size: clamp(20px, min(2.4vw, 3.6vh), 36px); }
+      .cap-cols { margin-top: auto; padding-top: clamp(20px, 3.5vh, 64px); grid-template-columns: 1fr 1fr 1.4fr; }
+      .cap-col li { padding: 2px 0; font-size: 15px; }
+      .chips { gap: 6px; }
+      .chip { font-size: 12px; padding: 7px 10px; }
+
+      /* Contact */
+      .contact-title { font-size: clamp(64px, min(12vw, 18vh), 200px); }
+      .contact-email { margin-top: clamp(16px, 4vh, 48px); font-size: clamp(26px, min(4.6vw, 7vh), 72px); }
+      .contact-links { margin-top: clamp(16px, 3.5vh, 32px); }
+      .contact-foot { margin-top: clamp(20px, 5vh, 64px); }
+    }
+
+    /* Growth on narrow landscape screens: keep the four stages on one screen */
+    @media (min-width: 901px) and (max-width: 1180px) and (min-height: 640px) {
+      .growth-head { grid-template-columns: 1fr minmax(0, 19em); gap: 16px 32px; }
+      .growth-title { font-size: clamp(36px, min(4.4vw, 7vh), 52px); }
+      .growth-sub { font-size: 15px; }
+      .funnel { gap: 12px; }
+      .stage-name { font-size: 26px; }
+      .stage-desc { font-size: 14px; line-height: 1.5; }
+      .tags { gap: 5px; }
+      .tag { font-size: 11px; padding: 6px 8px; }
+    }
+    @media (min-width: 901px) and (max-height: 760px) {
+      .growth-foot { display: none; }
+      /* About on short laptop screens: keep everything on one screen */
+      .statement { font-size: clamp(36px, min(5.4vw, 7.2vh), 92px); }
+      .about-foot { grid-template-columns: 1.25fr 1.6fr; margin-top: clamp(20px, 4vh, 80px); }
+      .bio { font-size: 15px; line-height: 1.55; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .rise { animation: none; }
+      .js .reveal { opacity: 1; transform: none; transition: none; }
+      .type-cursor { display: none; }
+      .current::before { animation: none; }
+      .scroll-hint svg { animation: none; }
+    }
+  </style>
+  <script>
+    // Set theme before paint: saved choice, else system preference.
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js');
+      try {
+        var saved = localStorage.getItem('theme');
+        var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        root.setAttribute('data-theme', theme);
+      } catch (e) {
+        root.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <a href="#intro" class="logo" aria-label="Abdul Musavir UC, back to start">
+        <span aria-hidden="true"><span class="light">Abdul</span> Musavir <span class="light">UC</span></span>
+      </a>
+      <nav class="nav caps" aria-label="Sections">
+        <a href="#intro" data-section="intro">Intro</a>
+        <a href="#about" data-section="about">About</a>
+        <a href="#growth" data-section="growth">Growth</a>
+        <a href="#experience" data-section="experience">Experience</a>
+        <a href="#expertise" data-section="expertise">Expertise</a>
+        <a href="#contact" data-section="contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
+          <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M12 2v2.5M12 19.5V22M4.22 4.22l1.77 1.77M18.01 18.01l1.77 1.77M2 12h2.5M19.5 12H22M4.22 19.78l1.77-1.77M18.01 5.99l1.77-1.77" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+        <a href="Abdul-Musavir-UC-CV.pdf" download class="pill pill-accent caps">Download CV</a>
+      </div>
+    </div>
+    <div class="scroll-progress" id="scroll-progress"></div>
+  </header>
+
+  <nav class="pager" aria-label="Section index">
+    <a href="#intro" data-section="intro">01</a>
+    <a href="#about" data-section="about">02</a>
+    <a href="#growth" data-section="growth">03</a>
+    <a href="#experience" data-section="experience">04</a>
+    <a href="#expertise" data-section="expertise">05</a>
+    <a href="#contact" data-section="contact">06</a>
+  </nav>
+
+  <main id="h-scroll">
+   <div class="h-sticky">
+    <div class="h-track" id="h-track">
+
+    <!-- 01 Intro -->
+    <section class="slide" id="intro">
+      <div class="container">
+
+        <div class="slide-body">
+          <div class="identity rise" style="--d: 0.1s">
+            <img class="avatar" src="portrait.webp" width="480" height="480" alt="Portrait of Abdul Musavir UC" />
+            <div>
+              <p class="identity-name">Abdul Musavir UC</p>
+              <p class="identity-role"><span class="nowrap">Digital Growth &amp; CX Specialist</span><span class="role-sep"> · </span><span class="nowrap role-place">Dubai</span></p>
+            </div>
+          </div>
+
+          <h1 class="display rise" style="--d: 0.2s" aria-label="Driving growth with performance marketing, content and customer experience.">
+            <span aria-hidden="true">Driving <span class="nowrap">growth with</span></span>
+            <span class="typed-line" aria-hidden="true"><span id="typewriter"></span><span class="type-cursor"></span></span>
+          </h1>
+
+          <div class="intro-foot rise" style="--d: 0.35s">
+            <p class="lead">Combining user-centric design, go-to-market planning, performance marketing and content to drive acquisition, adoption and conversion.</p>
+            <div class="cta-row">
+              <a href="#contact" class="pill pill-ink caps">Get in touch</a>
+              <a href="Abdul-Musavir-UC-CV.pdf" download class="pill pill-outline caps">
+                Download CV
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 1.5v8M2.5 6 6 9.5 9.5 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <p class="scroll-hint caps h-only" aria-hidden="true">
+          Scroll
+          <svg width="40" height="12" viewBox="0 0 40 12" fill="none"><path d="M0 6h38M33 1l5 5-5 5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </p>
+      </div>
+    </section>
+
+    <!-- 02 About -->
+    <section class="slide" id="about">
+      <div class="container">
+
+        <div class="slide-body">
+          <h2 class="statement reveal"><span class="st-line">Turning great</span> <span class="st-line">products and services into</span> <em class="st-line">measurable growth.</em></h2>
+          <p class="statement-sub reveal" style="--d: 0.08s">From positioning and paid media to the product experience that converts.</p>
+
+          <div class="about-foot">
+            <p class="bio reveal">For 16+ years I’ve worked across digital products, customer experience and brand strategy, from SAP Fiori products for Microsoft and Walmart to building design teams in Dubai. Today I lead brand growth at <strong>Pandera</strong>, an AI-powered design platform, owning positioning, go-to-market and customer acquisition, and drive UX strategy for <strong>GEMS Connect</strong> and <strong>Classroom</strong>.</p>
+            <div class="stats">
+              <div class="stat reveal" style="--d: 0s">
+                <p class="stat-value">16+</p>
+                <p class="stat-label caps">Years in product, CX &amp; growth</p>
+              </div>
+              <div class="stat reveal" style="--d: 0.08s">
+                <p class="stat-value">500K+</p>
+                <p class="stat-label caps">Monthly active users served</p>
+              </div>
+              <div class="stat reveal" style="--d: 0.16s">
+                <p class="stat-value">Fortune 500</p>
+                <p class="stat-label caps">Clients incl. Microsoft &amp; Walmart</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 Growth -->
+    <section class="slide" id="growth">
+      <div class="container">
+
+        <div class="slide-body">
+          <div class="growth-head">
+            <div class="reveal">
+              <p class="growth-label caps">Growth playbook</p>
+              <h2 class="growth-title">Growth, across the <span class="nowrap">whole funnel.</span></h2>
+            </div>
+            <p class="growth-sub reveal" style="--d: 0.08s">Strategy, paid media, content and product experience run as one loop. Every campaign teaches the product something, and every product insight sharpens the next campaign.</p>
+          </div>
+
+          <ol class="funnel">
+            <li class="stage reveal" style="--d: 0s">
+              <div class="stage-top caps"><span>01</span><span class="stage-kpi">Reach</span></div>
+              <h3 class="stage-name">Acquire</h3>
+              <p class="stage-desc">Performance campaigns across search, social and LinkedIn, plus SEO and content that bring in the right audience.</p>
+              <div class="tags">
+                <span class="tag">Google Ads</span>
+                <span class="tag">Meta Ads</span>
+                <span class="tag">LinkedIn Ads</span>
+                <span class="tag">Semrush</span>
+                <span class="tag">Ahrefs</span>
+                <span class="tag">Search Console</span>
+              </div>
+            </li>
+            <li class="stage reveal" style="--d: 0.08s">
+              <div class="stage-top caps"><span>02</span><span class="stage-kpi">Conversion</span></div>
+              <h3 class="stage-name">Convert</h3>
+              <p class="stage-desc">Landing pages and funnels designed to convert, with journeys mapped and drop-offs found in the data.</p>
+              <div class="tags">
+                <span class="tag">GA4</span>
+                <span class="tag">Tag Manager</span>
+                <span class="tag">Clarity</span>
+                <span class="tag">Hotjar</span>
+                <span class="tag">Funnel optimization</span>
+              </div>
+            </li>
+            <li class="stage reveal" style="--d: 0.16s">
+              <div class="stage-top caps"><span>03</span><span class="stage-kpi">Adoption</span></div>
+              <h3 class="stage-name">Activate</h3>
+              <p class="stage-desc">Product demos, onboarding and customer experience that turn sign-ups into active, engaged users.</p>
+              <div class="tags">
+                <span class="tag">Product demos</span>
+                <span class="tag">Onboarding</span>
+                <span class="tag">Journey mapping</span>
+                <span class="tag">Customer validation</span>
+              </div>
+            </li>
+            <li class="stage reveal" style="--d: 0.24s">
+              <div class="stage-top caps"><span>04</span><span class="stage-kpi">Engagement</span></div>
+              <h3 class="stage-name">Retain</h3>
+              <p class="stage-desc">Lifecycle email, content and brand storytelling that keep customers engaged, plus partnerships that open new channels.</p>
+              <div class="tags">
+                <span class="tag">HubSpot</span>
+                <span class="tag">Mailchimp</span>
+                <span class="tag">Content strategy</span>
+                <span class="tag">Partnerships</span>
+              </div>
+            </li>
+          </ol>
+
+          <p class="growth-foot caps reveal" style="--d: 0.3s">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.64-6.36M21 3v6h-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Measured end to end, with AI speeding up research, content and creative
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 Experience -->
+    <section class="slide" id="experience">
+
+      <div class="exp-layout">
+        <div class="exp-intro reveal">
+          <div>
+            <h2 class="exp-title">Experience</h2>
+            <p class="exp-sub">16+ years across product, CX and growth teams in the UAE, India, the US and Europe.</p>
+            <div class="exp-industries">
+              <p class="caps">Industries</p>
+              <div class="tags">
+                <span class="tag">AI SaaS</span>
+                <span class="tag">EdTech</span>
+                <span class="tag">Enterprise ERP</span>
+                <span class="tag">Brand agency</span>
+                <span class="tag">E-commerce</span>
+                <span class="tag">Mobile &amp; IoT</span>
+                <span class="tag">Mobility &amp; Transport</span>
+              </div>
+            </div>
+          </div>
+          <div class="exp-controls">
+            <span class="exp-count caps">6 roles · Since 2008</span>
+            <div class="exp-buttons">
+              <button class="round-btn" type="button" id="exp-prev" aria-label="Previous role">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13 8H3M7 4 3 8l4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <button class="round-btn" type="button" id="exp-next" aria-label="Next role">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-track reveal" id="exp-track" tabindex="0" role="region" aria-label="Work experience, scroll horizontally" style="--d: 0.1s">
+          <article class="exp-card">
+            <div>
+              <div class="exp-card-top caps"><span>01</span><span class="current">Current</span></div>
+              <h3 class="exp-company">Pandera</h3>
+              <p class="exp-role">Head of Brand Growth</p>
+            </div>
+            <div>
+              <p class="exp-desc">Leading product strategy, brand positioning, go-to-market and customer acquisition for an AI-powered design platform, from content and digital marketing to agency partnerships, product demos and onboarding.</p>
+              <p class="exp-meta caps">Jan 2026 to Present · Dubai</p>
+            </div>
+          </article>
+
+          <article class="exp-card">
+            <div>
+              <div class="exp-card-top caps"><span>02</span><span class="current">Current</span></div>
+              <h3 class="exp-company">GEMS</h3>
+              <p class="exp-role">Senior Product Designer</p>
+            </div>
+            <div>
+              <p class="exp-desc">Leading UX strategy and visual design for the award-winning GEMS Connect, Classroom and GEMS SRI, serving 500K+ monthly active users, and aligning customer experience and brand with business goals.</p>
+              <p class="exp-meta caps">Jan 2020 to Present · Dubai</p>
+            </div>
+          </article>
+
+          <article class="exp-card">
+            <div>
+              <div class="exp-card-top caps"><span>03</span></div>
+              <h3 class="exp-company">Brandster</h3>
+              <p class="exp-role">Head of Brand Growth</p>
+            </div>
+            <div>
+              <p class="exp-desc">Led brand strategy, positioning and creative direction across digital products, built customer-centric experiences and content strategies for growth, and built and managed the design team.</p>
+              <p class="exp-meta caps">Apr 2017 to Dec 2019 · Dubai</p>
+            </div>
+          </article>
+
+          <article class="exp-card">
+            <div>
+              <div class="exp-card-top caps"><span>04</span></div>
+              <h3 class="exp-company">Fulcrum GT</h3>
+              <p class="exp-role">Senior UX Consultant, SAP Fiori</p>
+            </div>
+            <div>
+              <p class="exp-desc">Led UX strategy across SAP Fiori products for Microsoft and Walmart. Managed a team of four and ran design-system enablement for front-end developers.</p>
+              <p class="exp-meta caps">Jun 2016 to Feb 2017 · Vizag</p>
+            </div>
+          </article>
+
+          <article class="exp-card">
+            <div>
+              <div class="exp-card-top caps"><span>05</span></div>
+              <h3 class="exp-company">Toobler</h3>
+              <p class="exp-role">UX Engineer &amp; Head of Design</p>
+            </div>
+            <div>
+              <p class="exp-desc">Developed brand strategy for the company and its internal startups, led customer validation, and managed design delivery across mobile, web and IoT.</p>
+              <p class="exp-meta caps">Jun 2012 to Feb 2016 · Cochin</p>
+            </div>
+          </article>
+
+          <article class="exp-card">
+            <div>
+              <div class="exp-card-top caps"><span>06</span></div>
+              <h3 class="exp-company">Bridge</h3>
+              <p class="exp-role">Senior UI &amp; Front-end Developer</p>
+            </div>
+            <div>
+              <p class="exp-desc">Oversaw the UI and front-end department, delivering custom web applications, e-commerce platforms and CMS solutions in an Agile environment.</p>
+              <p class="exp-meta caps">Sep 2008 to Jul 2011 · Cochin</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 Expertise -->
+    <section class="slide slide-accent" id="expertise">
+      <div class="container">
+        <h2 class="big-word reveal">Range.</h2>
+        <p class="expertise-lead reveal">From growth strategy and performance marketing to customer experience and product design.</p>
+
+        <div class="cap-cols">
+          <div class="cap-col reveal" style="--d: 0s">
+            <h3 class="caps">Growth &amp; marketing</h3>
+            <ul>
+              <li>Growth &amp; GTM strategy</li>
+              <li>Performance marketing</li>
+              <li>Content strategy</li>
+              <li>Customer acquisition</li>
+              <li>Brand positioning</li>
+              <li>Campaign management</li>
+              <li>Marketing analytics</li>
+              <li>AI-powered marketing</li>
+            </ul>
+          </div>
+          <div class="cap-col reveal" style="--d: 0.08s">
+            <h3 class="caps">Product &amp; CX</h3>
+            <ul>
+              <li>Customer experience</li>
+              <li>Product design (UX/UI)</li>
+              <li>Conversion optimization</li>
+              <li>Funnel optimization</li>
+              <li>Journey mapping</li>
+              <li>Customer validation</li>
+              <li>Design systems</li>
+            </ul>
+          </div>
+          <div class="cap-col reveal" style="--d: 0.16s">
+            <h3 class="caps">Design, AI &amp; build</h3>
+            <div class="chips">
+              <span class="chip">Figma</span>
+              <span class="chip">Framer</span>
+              <span class="chip">Adobe Creative Suite</span>
+              <span class="chip">Pandera</span>
+              <span class="chip">Canva</span>
+              <span class="chip">ChatGPT</span>
+              <span class="chip">Claude</span>
+              <span class="chip">Cursor</span>
+              <span class="chip">Firebase</span>
+              <span class="chip">React</span>
+              <span class="chip">Next.js</span>
+              <span class="chip">WordPress</span>
+              <span class="chip">Webflow</span>
+              <span class="chip">Git</span>
+              <span class="chip">Notion</span>
+              <span class="chip">Jira</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 Contact -->
+    <section class="slide" id="contact">
+      <div class="container">
+
+        <div class="slide-body">
+          <p class="contact-label caps reveal">Growth, CX &amp; product case studies on request</p>
+          <h2 class="contact-title reveal" style="--d: 0.05s">Let’s grow.</h2>
+          <a class="contact-email reveal" style="--d: 0.1s" href="mailto:musaviruc@gmail.com">musaviruc@gmail.com</a>
+          <div class="contact-links reveal" style="--d: 0.15s">
+            <a class="pill pill-accent caps" href="mailto:musaviruc@gmail.com?subject=Case%20study%20request&amp;body=Hi%20Musavir%2C%0A%0AI%E2%80%99d%20love%20to%20see%20some%20of%20your%20case%20studies.%0A%0AThanks%2C">Request case studies</a>
+            <a class="pill pill-outline caps" href="https://www.linkedin.com/in/musaviruc/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="pill pill-outline caps" href="https://x.com/musavir" target="_blank" rel="noopener">X</a>
+          </div>
+        </div>
+
+        <div class="contact-foot caps">
+          <span>© <span id="year">2026</span> Abdul Musavir UC</span>
+          <a href="#intro"><span class="v-only">Back to top ↑</span><span class="h-only">← Back to start</span></a>
+        </div>
+      </div>
+    </section>
+
+    </div>
+   </div>
+  </main>
+
+  <script>
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Typewriter
+    (() => {
+      const words = [
+        'performance marketing.',
+        'customer experience.',
+        'go-to-market strategy.',
+        'content that converts.',
+        'conversion-led design.',
+        'AI-powered campaigns.'
+      ];
+      const el = document.getElementById('typewriter');
+      if (!el) return;
+      const line = el.parentElement;
+
+      // Reserve the height of the tallest phrase so the page never jumps while typing.
+      const reserve = () => {
+        const current = el.textContent;
+        line.style.minHeight = '';
+        let max = 0;
+        for (const w of words) { el.textContent = w; max = Math.max(max, line.offsetHeight); }
+        el.textContent = current;
+        line.style.minHeight = max + 'px';
+      };
+      reserve();
+      if (document.fonts) document.fonts.ready.then(reserve);
+      let raf;
+      window.addEventListener('resize', () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(reserve); });
+
+      if (reduceMotion) { el.textContent = words[0]; return; }
+
+      let wi = 0, ci = 0, deleting = false;
+      const speed = { type: 60, delete: 30, pause: 1800 };
+      function tick() {
+        const word = words[wi];
+        if (!deleting) {
+          el.textContent = word.slice(0, ++ci);
+          if (ci === word.length) { deleting = true; setTimeout(tick, speed.pause); return; }
+        } else {
+          el.textContent = word.slice(0, --ci);
+          if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; }
+        }
+        setTimeout(tick, deleting ? speed.delete : speed.type);
+      }
+      setTimeout(tick, 900);
+    })();
+
+    // Theme toggle (dark / light)
+    document.getElementById('theme-toggle').addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      try { if (localStorage.getItem('theme')) return; } catch (err) {}
+      document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+    });
+
+    // Experience cards: arrow buttons
+    (() => {
+      const track = document.getElementById('exp-track');
+      const prev = document.getElementById('exp-prev');
+      const next = document.getElementById('exp-next');
+      const step = () => {
+        const card = track.querySelector('.exp-card');
+        return card ? card.getBoundingClientRect().width + 20 : track.clientWidth * 0.8;
+      };
+      const sync = () => {
+        prev.disabled = track.scrollLeft <= 4;
+        next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+      };
+      prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: reduceMotion ? 'auto' : 'smooth' }));
+      next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: reduceMotion ? 'auto' : 'smooth' }));
+      track.addEventListener('scroll', sync, { passive: true });
+      window.addEventListener('resize', sync);
+      sync();
+    })();
+
+    // Page controller: horizontal track on desktop, vertical stack on phones.
+    // Drives the sideways movement, header progress line, active section and reveals.
+    (() => {
+      const root = document.documentElement;
+      const main = document.getElementById('h-scroll');
+      const track = document.getElementById('h-track');
+      const panels = [...track.querySelectorAll(':scope > section[id]')];
+      const bar = document.getElementById('scroll-progress');
+      const links = document.querySelectorAll('[data-section]');
+      const reveals = [...document.querySelectorAll('.reveal')];
+      const mq = window.matchMedia('(min-width: 901px) and (min-height: 640px)');
+      let horizontal = false, distance = 0, activeId = null, ticking = false, snapPoints = [];
+
+      const setActive = (id) => {
+        if (id === activeId) return;
+        activeId = id;
+        links.forEach(a => a.classList.toggle('active', a.dataset.section === id));
+        document.body.classList.toggle('on-accent', id === 'expertise');
+      };
+
+      const update = () => {
+        ticking = false;
+        let x = 0;
+        if (horizontal) {
+          x = Math.min(distance, Math.max(0, scrollY - main.offsetTop));
+          track.style.transform = `translate3d(${-x}px, 0, 0)`;
+        }
+
+        const max = root.scrollHeight - innerHeight;
+        bar.style.setProperty('--p', max > 0 ? Math.min(1, scrollY / max) : 0);
+
+        let current = panels[0].id;
+        for (const panel of panels) {
+          const pos = horizontal ? panel.offsetLeft - x : panel.getBoundingClientRect().top;
+          if (pos <= (horizontal ? innerWidth : innerHeight) / 2) current = panel.id;
+        }
+        setActive(current);
+
+        for (let i = reveals.length - 1; i >= 0; i--) {
+          const r = reveals[i].getBoundingClientRect();
+          if (r.top < innerHeight * 0.92 && r.bottom > 0 && r.left < innerWidth * 0.92 && r.right > 0) {
+            reveals[i].classList.add('visible');
+            reveals.splice(i, 1);
+          }
+        }
+      };
+      const requestUpdate = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+
+      const layout = () => {
+        horizontal = mq.matches;
+        root.style.setProperty('--vw', root.clientWidth + 'px');
+        if (horizontal) {
+          const vw = root.clientWidth;
+          distance = Math.max(0, track.offsetWidth - vw);
+          main.style.height = (distance + innerHeight) + 'px';
+          // Stops: the start of every section, plus the end of any section wider than the screen.
+          const points = new Set();
+          panels.forEach(p => {
+            points.add(Math.min(p.offsetLeft, distance));
+            if (p.offsetWidth > vw + 1) points.add(Math.min(p.offsetLeft + p.offsetWidth - vw, distance));
+          });
+          snapPoints = [...points].sort((a, b) => a - b);
+        } else {
+          distance = 0;
+          snapPoints = [];
+          main.style.height = '';
+          track.style.transform = '';
+        }
+        update();
+      };
+
+      // Smoothly move to a scroll position. Remembering where we're heading lets quick
+      // repeated swipes move section by section instead of being lost mid-animation.
+      let glideTarget = null;
+      const glideTo = (top) => {
+        glideTarget = top;
+        window.scrollTo({ top, behavior: reduceMotion ? 'auto' : 'smooth' });
+      };
+
+      // Jump to a section in either layout.
+      const goTo = (id) => {
+        const panel = document.getElementById(id);
+        if (!panel) return;
+        const top = horizontal
+          ? main.offsetTop + Math.min(distance, panel.offsetLeft)
+          : panel.getBoundingClientRect().top + scrollY;
+        glideTo(top);
+      };
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', (e) => {
+          const id = a.getAttribute('href').slice(1);
+          if (!document.getElementById(id)) return;
+          e.preventDefault();
+          goTo(id);
+        });
+      });
+
+      // Move to the next / previous stop.
+      const step = (dir) => {
+        const y = (glideTarget ?? scrollY) - main.offsetTop;
+        const target = dir > 0
+          ? snapPoints.find(p => p > y + 2)
+          : [...snapPoints].reverse().find(p => p < y - 2);
+        if (target === undefined) return;
+        glideTo(main.offsetTop + target);
+      };
+
+      // One wheel / trackpad gesture (vertical or sideways) = one section.
+      // A new gesture starts after a pause, a change of direction, or when the swipe
+      // speeds up again over a trackpad's fading momentum.
+      let lastWheel = 0, lastDir = 0, gestureUsed = false, wheelAcc = 0, busyUntil = 0;
+      const recent = [];
+      window.addEventListener('wheel', (e) => {
+        if (!horizontal || e.ctrlKey) return;
+        e.preventDefault();
+        const now = performance.now();
+        let d = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+        if (e.deltaMode === 1) d *= 16; else if (e.deltaMode === 2) d *= innerHeight;
+        const abs = Math.abs(d), dir = Math.sign(d);
+        if (!dir) return;
+
+        const avg = recent.length ? recent.reduce((a, b) => a + b, 0) / recent.length : 0;
+        const paused = now - lastWheel > 160;
+        const canRestart = now >= busyUntil;
+        const flipped = lastDir !== 0 && dir !== lastDir;
+        const speedingUp = recent.length >= 3 && abs > avg * 1.6 && abs > 8;
+        if (paused || (canRestart && (flipped || speedingUp))) { gestureUsed = false; wheelAcc = 0; recent.length = 0; }
+        recent.push(abs);
+        if (recent.length > 5) recent.shift();
+        lastWheel = now;
+        lastDir = dir;
+
+        if (gestureUsed || !canRestart) return;
+        wheelAcc += d;
+        if (Math.abs(wheelAcc) < 24) return;
+        gestureUsed = true;
+        busyUntil = now + 300;
+        step(Math.sign(wheelAcc));
+      }, { passive: false });
+
+      const stepKeys = { ArrowRight: 1, ArrowDown: 1, PageDown: 1, ArrowLeft: -1, ArrowUp: -1, PageUp: -1 };
+      window.addEventListener('keydown', (e) => {
+        if (!horizontal || e.altKey || e.ctrlKey || e.metaKey) return;
+        const t = e.target instanceof Element ? e.target : null;
+        if (t && t.closest('input, textarea, select, [contenteditable]')) return;
+        let dir = stepKeys[e.key];
+        if (e.key === ' ' && (!t || t === document.body)) dir = e.shiftKey ? -1 : 1;
+        if (!dir) return;
+        e.preventDefault();
+        step(dir);
+      });
+
+      // When scrolling stops between sections (scrollbar drag, touch, Home/End), settle on the nearest one.
+      let settleTimer, holding = false;
+      const settle = () => {
+        if (!horizontal || holding || !snapPoints.length) { glideTarget = null; return; }
+        const y = scrollY - main.offsetTop;
+        const nearest = snapPoints.reduce((a, b) => (Math.abs(b - y) < Math.abs(a - y) ? b : a));
+        if (Math.abs(nearest - y) < 2) { glideTarget = null; return; }
+        glideTo(main.offsetTop + nearest);
+      };
+      const scheduleSettle = () => { clearTimeout(settleTimer); settleTimer = setTimeout(settle, 180); };
+      ['touchstart', 'mousedown'].forEach(t => window.addEventListener(t, () => { holding = true; }, { passive: true }));
+      ['touchend', 'touchcancel', 'mouseup'].forEach(t => window.addEventListener(t, () => { holding = false; scheduleSettle(); }, { passive: true }));
+
+      window.addEventListener('scroll', () => { requestUpdate(); scheduleSettle(); }, { passive: true });
+      let resizeRaf;
+      window.addEventListener('resize', () => { cancelAnimationFrame(resizeRaf); resizeRaf = requestAnimationFrame(layout); });
+      mq.addEventListener('change', layout);
+      if (document.fonts) document.fonts.ready.then(layout);
+      layout();
+    })();
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Abdul Musavir UC - CV</title>
+  <style>
+    @font-face {
+      font-family: 'Geist';
+      src: url('Geist-Variable.woff2') format('woff2');
+      font-weight: 100 900;
+      font-style: normal;
+    }
+
+    @page { size: A4; margin: 0; }
+
+    :root {
+      --ink: #0e1726;
+      --text: #2d3748;
+      --chip-text: #1a202c;
+      --muted: #4a5568;
+      --navy: #1b3a6b;
+      --side: #eef2f8;
+      --line: #d5dce8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body { background: #fff; }
+    body {
+      font-family: 'Geist', -apple-system, 'Helvetica Neue', Arial, sans-serif;
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    strong { font-weight: 600; color: var(--chip-text); }
+
+    /* One A4 sheet */
+    .page {
+      position: relative;
+      width: 210mm;
+      height: 297mm;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 248px 1fr;
+      break-after: page;
+    }
+    .page:last-child { break-after: auto; }
+
+    @media screen {
+      html, body { background: #e6e9ef; }
+      body { padding: 32px 0; }
+      .page { margin: 0 auto 32px; background: #fff; box-shadow: 0 2px 24px rgba(14, 23, 38, 0.12); }
+    }
+
+    /* ─── Sidebar ─── */
+    .side {
+      position: relative;
+      background: var(--side);
+      padding: 43px 30px 0 30px;
+    }
+
+    .photo {
+      width: 168px; height: 168px;
+      margin-left: 12px;
+      border-radius: 50%;
+      background: var(--line);
+      display: grid; place-items: center;
+    }
+    .photo img {
+      width: 156px; height: 156px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 0 2.5px #fff;
+    }
+
+    .label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .contact { margin-top: 27px; }
+    .contact ul { margin-top: 7px; }
+    .contact li {
+      display: flex; align-items: center; gap: 10px;
+      height: 27px;
+      font-size: 12.5px;
+      color: var(--chip-text);
+    }
+    .contact li.link { color: var(--navy); }
+    .contact svg {
+      width: 12px; height: 12px; flex-shrink: 0;
+      stroke: var(--muted); fill: none;
+      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+      margin-left: 1px;
+    }
+
+    .group { margin-top: 26px; }
+    .contact + .group { margin-top: 23px; }
+    .page:first-child .group + .group { margin-top: 29px; }
+    .group .label + .chips { margin-top: 12px; }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 7px; }
+    .chip {
+      display: inline-flex; align-items: center;
+      height: 24px;
+      padding: 0 8px;
+      border: 1px solid var(--line);
+      border-radius: 5.5px;
+      background: #fff;
+      font-size: 11.5px;
+      color: var(--chip-text);
+      white-space: nowrap;
+    }
+
+    .side-title {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .side-title { margin-top: 6px; }
+    .side-title + .group { margin-top: 28px; }
+
+    .side-foot {
+      position: absolute;
+      left: 30px; right: 30px; bottom: 42px;
+    }
+    .side-foot .lines { margin-bottom: -4px; }
+    .side-foot .label { font-size: 12px; }
+    .side-foot .label + p { margin-top: 9px; }
+    .side-foot p { font-size: 12.5px; color: var(--muted); }
+    .side-foot .lines p { font-size: 12px; line-height: 22px; }
+    .side-foot .lines .name { font-weight: 600; color: var(--ink); }
+    .side-foot .lines .mail { color: var(--navy); }
+
+    /* ─── Main column ─── */
+    .main { padding: 45px 44px 0 40px; }
+
+    .name {
+      font-size: 40px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+    .role {
+      margin-top: 5px;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1.3;
+    }
+    .disciplines {
+      margin-top: 6px;
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+
+    .intro {
+      margin-top: 14px;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--text);
+    }
+
+    .stats {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 11px;
+    }
+    .stat {
+      height: 82px;
+      padding: 12px 13px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+    }
+    .stat-num {
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      line-height: 1;
+      color: var(--navy);
+    }
+    .stat-label {
+      margin-top: 4px;
+      font-size: 11px;
+      line-height: 1.22;
+      color: var(--muted);
+    }
+
+    .industries {
+      margin-top: 25px;
+      display: flex; flex-wrap: wrap; align-items: center;
+      gap: 6px;
+    }
+    .industries .lead {
+      margin-right: 1px;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .industries .tag {
+      display: inline-flex; align-items: center;
+      height: 23px;
+      padding: 0 9.5px;
+      border-radius: 5px;
+      background: var(--side);
+      font-size: 11.5px;
+      color: var(--chip-text);
+    }
+
+    .section-head {
+      display: flex; align-items: center; gap: 14px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .section-head::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+
+    .experience { margin-top: 24px; }
+    .experience .section-head + .job { margin-top: 20px; }
+
+    .job + .job { margin-top: 18px; }
+    .job-head {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+    }
+    .job-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+    .job-date {
+      font-size: 11.5px;
+      font-weight: 500;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .org {
+      margin-top: 5px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+    .org .caps { text-transform: uppercase; }
+
+    .bullets { margin-top: 7.5px; }
+    .bullets li {
+      position: relative;
+      padding-left: 16px;
+      font-size: 13px;
+      line-height: 20px;
+      color: var(--text);
+    }
+    .bullets li + li { margin-top: 3px; }
+    .bullets li::before {
+      content: '';
+      position: absolute; left: 1px; top: 8px;
+      width: 4px; height: 4px; border-radius: 50%;
+      background: var(--text);
+    }
+
+    /* Page 2 */
+    .running {
+      margin-top: 1px;
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+      font-size: 11.5px;
+      color: var(--muted);
+    }
+    .running strong { color: var(--ink); }
+    .running + .experience { margin-top: 23px; }
+
+    .work { margin-top: 20px; }
+    .work .section-head + .work-grid { margin-top: 20px; }
+    .work-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 11px;
+    }
+    .work-card {
+      min-height: 81px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+    }
+    .work-card h4 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.25;
+    }
+    .work-card p {
+      margin-top: 4px;
+      font-size: 12px;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════ PAGE 1 ═══════════════ -->
+  <section class="page">
+    <aside class="side">
+      <div class="photo"><img src="portrait.jpg" alt="Abdul Musavir UC" /></div>
+
+      <div class="contact">
+        <p class="label">Contact</p>
+        <ul>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+            Dubai, UAE
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+971543377660">+971 54 337 7660</a>
+          </li>
+          <li class="link">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <a href="mailto:musaviruc@gmail.com">musaviruc@gmail.com</a>
+          </li>
+          <li class="link">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+            <a href="https://musavir.me">musavir.me</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="group">
+        <p class="label">Growth &amp; Marketing</p>
+        <div class="chips">
+          <span class="chip">Growth &amp; GTM Strategy</span>
+          <span class="chip">Performance Marketing</span>
+          <span class="chip">Content Strategy</span>
+          <span class="chip">Customer Acquisition</span>
+          <span class="chip">Brand Positioning</span>
+          <span class="chip">Campaign Management</span>
+          <span class="chip">Marketing Analytics</span>
+          <span class="chip">AI-Powered Marketing</span>
+        </div>
+      </div>
+
+      <div class="group">
+        <p class="label">Product &amp; CX</p>
+        <div class="chips">
+          <span class="chip">Customer Experience</span>
+          <span class="chip">Product Design (UX/UI)</span>
+          <span class="chip">Conversion Optimization</span>
+          <span class="chip">Journey Mapping</span>
+          <span class="chip">Funnel Optimization</span>
+          <span class="chip">Customer Validation</span>
+        </div>
+      </div>
+
+      <div class="side-foot">
+        <p class="label">Based in</p>
+        <p>Dubai since 2017</p>
+      </div>
+    </aside>
+
+    <main class="main">
+      <h1 class="name">Abdul Musavir UC</h1>
+      <p class="role">Digital Growth &amp; CX Specialist</p>
+      <p class="disciplines">Product Design · Growth Strategy · Content &amp; Digital Marketing</p>
+
+      <p class="intro">Growth and CX specialist with 16+ years across digital products, customer experience and brand. I connect user-centric design, go-to-market strategy, performance marketing and content to drive acquisition and adoption. I’ve designed for 500K+ monthly users and Fortune 500 clients, and led cross-functional teams from concept to launch.</p>
+
+      <div class="stats">
+        <div class="stat"><p class="stat-num">16+</p><p class="stat-label">years in product, CX &amp;<br />growth</p></div>
+        <div class="stat"><p class="stat-num">500K+</p><p class="stat-label">monthly active users<br />served</p></div>
+        <div class="stat"><p class="stat-num">2</p><p class="stat-label">Fortune 500 clients<br />(Microsoft, Walmart)</p></div>
+      </div>
+
+      <div class="industries">
+        <span class="lead">Industries</span>
+        <span class="tag">AI SaaS</span>
+        <span class="tag">EdTech</span>
+        <span class="tag">Enterprise ERP</span>
+        <span class="tag">Brand agency</span>
+        <span class="tag">E-commerce</span>
+        <span class="tag">Mobile &amp; IoT</span>
+        <span class="tag">Mobility &amp; Transport</span>
+      </div>
+
+      <section class="experience">
+        <h2 class="section-head">Experience</h2>
+
+        <article class="job">
+          <div class="job-head"><h3 class="job-title">Head of Brand Growth</h3><span class="job-date">Jan 2026 - Present</span></div>
+          <p class="org"><span class="caps">Pandera · Dubai</span> · pandera.ai</p>
+          <ul class="bullets">
+            <li>Lead product strategy, brand positioning, go-to-market and customer acquisition for an AI-powered design platform.</li>
+            <li>Drive content, digital marketing, agency partnerships, product demos and customer onboarding.</li>
+            <li>Turn customer insight and market intelligence into higher adoption, engagement and conversion.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job-head"><h3 class="job-title">Senior Product Designer</h3><span class="job-date">Jan 2020 - Present</span></div>
+          <p class="org"><span class="caps">GEMS Education · Dubai</span></p>
+          <ul class="bullets">
+            <li>Led UX strategy and visual design for award-winning products <strong>GEMS Connect</strong>, <strong>Classroom</strong> and <strong>GEMS SRI</strong>, serving <strong>500K+ monthly active users</strong>.</li>
+            <li>Aligned customer experience, brand and product vision with business objectives alongside stakeholders and product owners.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job-head"><h3 class="job-title">Head of Brand Growth</h3><span class="job-date">Apr 2017 - Dec 2019</span></div>
+          <p class="org"><span class="caps">Brandster · Dubai</span></p>
+          <ul class="bullets">
+            <li>Led brand strategy, positioning and creative direction across multiple digital products.</li>
+            <li>Developed customer-centric experiences and content strategies to support business growth.</li>
+            <li>Built and managed the design team, aligning creative work with commercial objectives.</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+  </section>
+
+  <!-- ═══════════════ PAGE 2 ═══════════════ -->
+  <section class="page">
+    <aside class="side">
+      <h2 class="side-title">Tools &amp; Technology</h2>
+
+      <div class="group">
+        <p class="label">Paid &amp; Lifecycle</p>
+        <div class="chips">
+          <span class="chip">Google Ads</span>
+          <span class="chip">Meta Ads Manager</span>
+          <span class="chip">LinkedIn Campaign Manager</span>
+          <span class="chip">HubSpot</span>
+          <span class="chip">Mailchimp</span>
+        </div>
+      </div>
+
+      <div class="group">
+        <p class="label">Analytics &amp; SEO</p>
+        <div class="chips">
+          <span class="chip">GA4</span>
+          <span class="chip">Google Tag Manager</span>
+          <span class="chip">Search Console</span>
+          <span class="chip">Microsoft Clarity</span>
+          <span class="chip">Hotjar</span>
+          <span class="chip">Semrush</span>
+          <span class="chip">Ahrefs</span>
+        </div>
+      </div>
+
+      <div class="group">
+        <p class="label">Design</p>
+        <div class="chips">
+          <span class="chip">Figma</span>
+          <span class="chip">Framer</span>
+          <span class="chip">Adobe Creative Suite</span>
+          <span class="chip">Pandera</span>
+          <span class="chip">Canva</span>
+        </div>
+      </div>
+
+      <div class="group">
+        <p class="label">AI &amp; Build</p>
+        <div class="chips">
+          <span class="chip">ChatGPT</span>
+          <span class="chip">Claude</span>
+          <span class="chip">Cursor</span>
+          <span class="chip">Firebase</span>
+          <span class="chip">React</span>
+          <span class="chip">Next.js</span>
+          <span class="chip">WordPress</span>
+          <span class="chip">Webflow</span>
+          <span class="chip">Git</span>
+        </div>
+      </div>
+
+      <div class="group">
+        <p class="label">Workflow</p>
+        <div class="chips">
+          <span class="chip">Notion</span>
+          <span class="chip">Jira</span>
+        </div>
+      </div>
+
+      <div class="side-foot">
+        <div class="lines">
+          <p class="name">Abdul Musavir UC</p>
+          <p class="mail"><a href="mailto:musaviruc@gmail.com">musaviruc@gmail.com</a></p>
+          <p><a href="tel:+971543377660">+971 54 337 7660</a></p>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <div class="running">
+        <span><strong>Abdul Musavir UC</strong> · Digital Growth &amp; CX Specialist</span>
+        <span>2 / 2</span>
+      </div>
+
+      <section class="experience">
+        <h2 class="section-head">Experience (continued)</h2>
+
+        <article class="job">
+          <div class="job-head"><h3 class="job-title">Senior UX Consultant (SAP Fiori)</h3><span class="job-date">Jun 2016 - Feb 2017</span></div>
+          <p class="org"><span class="caps">Fulcrum GT · Vizag</span></p>
+          <ul class="bullets">
+            <li>Led enterprise UX strategy for SAP Fiori products for clients including <strong>Microsoft</strong> and <strong>Walmart</strong>.</li>
+            <li>Managed a team of four and enabled developers on design systems and UX best practices.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job-head"><h3 class="job-title">UX Engineer &amp; Head of Design</h3><span class="job-date">Jun 2012 - Feb 2016</span></div>
+          <p class="org"><span class="caps">Toobler · Cochin</span></p>
+          <ul class="bullets">
+            <li>Developed brand strategy for the company and its internal startups; led customer validation.</li>
+            <li>Managed design delivery across mobile, web and IoT platforms.</li>
+            <li>Established collaborative design workflows and standards.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <div class="job-head"><h3 class="job-title">Senior UI &amp; Front-end Developer</h3><span class="job-date">Sep 2008 - Jul 2011</span></div>
+          <p class="org"><span class="caps">Bridge · Cochin</span></p>
+          <ul class="bullets">
+            <li>Led UI and front-end delivery for custom web applications, e-commerce platforms and CMS solutions.</li>
+            <li>Worked directly with senior management and cross-functional teams.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="work">
+        <h2 class="section-head">Selected work</h2>
+        <div class="work-grid">
+          <div class="work-card"><h4>Pandera</h4><p>AI-powered design platform - product, brand &amp; go-to-market</p></div>
+          <div class="work-card"><h4>GEMS Connect</h4><p>Award-winning product - UX strategy for 500K+ monthly users</p></div>
+          <div class="work-card"><h4>GEMS Classroom</h4><p>Award-winning learning product - UX strategy &amp; visual design</p></div>
+          <div class="work-card"><h4>SAP Fiori</h4><p>Enterprise UX for Microsoft &amp; Walmart</p></div>
+        </div>
+      </section>
+    </main>
+  </section>
+
+</body>
+</html>
